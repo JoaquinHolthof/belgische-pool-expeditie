@@ -1,0 +1,344 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The :root and .dark blocks define the actual color values using oklch.
+ * All colors MUST use oklch format.
+ *
+ * To add a new semantic color:
+ * 1. Add the variable to :root (light value) and .dark (dark value)
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
+
+@theme inline {
+  --font-sans: var(--font-display);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-glass: var(--glass);
+  --color-glass-strong: var(--glass-strong);
+  --color-expedition: var(--expedition);
+  --color-expedition-foreground: var(--expedition-foreground);
+}
+
+:root {
+  --font-display: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --radius: 0.5rem;
+  --background: oklch(0.115 0.022 251.8);
+  --foreground: oklch(0.965 0.006 223.2);
+  --card: oklch(0.17 0.025 247.9 / 84%);
+  --card-foreground: oklch(0.965 0.006 223.2);
+  --popover: oklch(0.15 0.025 247.9 / 88%);
+  --popover-foreground: oklch(0.965 0.006 223.2);
+  --primary: oklch(0.72 0.19 25.2);
+  --primary-foreground: oklch(0.985 0.01 80);
+  --secondary: oklch(0.225 0.028 243.6);
+  --secondary-foreground: oklch(0.92 0.012 229.6);
+  --muted: oklch(0.235 0.027 246.8);
+  --muted-foreground: oklch(0.705 0.022 235.5);
+  --accent: oklch(0.68 0.105 196.7);
+  --accent-foreground: oklch(0.08 0.018 251.8);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0.01 80);
+  --border: oklch(0.86 0.014 233 / 18%);
+  --input: oklch(0.9 0.012 233 / 22%);
+  --ring: oklch(0.72 0.19 25.2);
+  --glass: oklch(0.18 0.027 246 / 44%);
+  --glass-strong: oklch(0.18 0.027 246 / 72%);
+  --expedition: oklch(0.72 0.22 25.2);
+  --expedition-foreground: oklch(0.985 0.01 80);
+  --chart-1: oklch(0.72 0.22 25.2);
+  --chart-2: oklch(0.68 0.105 196.7);
+  --chart-3: oklch(0.78 0.05 232.1);
+  --chart-4: oklch(0.54 0.08 258.7);
+  --chart-5: oklch(0.86 0.06 91.5);
+  --sidebar: oklch(0.15 0.025 247.9);
+  --sidebar-foreground: oklch(0.965 0.006 223.2);
+  --sidebar-primary: oklch(0.72 0.19 25.2);
+  --sidebar-primary-foreground: oklch(0.985 0.01 80);
+  --sidebar-accent: oklch(0.235 0.027 246.8);
+  --sidebar-accent-foreground: oklch(0.92 0.012 229.6);
+  --sidebar-border: oklch(0.86 0.014 233 / 18%);
+  --sidebar-ring: oklch(0.72 0.19 25.2);
+}
+
+.dark {
+  --background: oklch(0.129 0.042 264.695);
+  --foreground: oklch(0.984 0.003 247.858);
+  --card: oklch(0.208 0.042 265.755);
+  --card-foreground: oklch(0.984 0.003 247.858);
+  --popover: oklch(0.208 0.042 265.755);
+  --popover-foreground: oklch(0.984 0.003 247.858);
+  --primary: oklch(0.929 0.013 255.508);
+  --primary-foreground: oklch(0.208 0.042 265.755);
+  --secondary: oklch(0.279 0.041 260.031);
+  --secondary-foreground: oklch(0.984 0.003 247.858);
+  --muted: oklch(0.279 0.041 260.031);
+  --muted-foreground: oklch(0.704 0.04 256.788);
+  --accent: oklch(0.279 0.041 260.031);
+  --accent-foreground: oklch(0.984 0.003 247.858);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.551 0.027 264.364);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.208 0.042 265.755);
+  --sidebar-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.279 0.041 260.031);
+  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.551 0.027 264.364);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-display);
+    letter-spacing: 0;
+  }
+}
+
+@layer components {
+  /* ── Deep space background — optimised for 21:9 wide display ── */
+  .touchwall-shell {
+    min-height: 100vh;
+    background:
+      radial-gradient(ellipse 55% 60% at 50% 46%, oklch(0.22 0.060 238 / 48%), transparent 52%),
+      radial-gradient(ellipse 28% 35% at 80% 12%, oklch(0.45 0.12 240 / 12%), transparent 45%),
+      linear-gradient(160deg, oklch(0.07 0.025 255) 0%, oklch(0.09 0.030 248) 40%, oklch(0.05 0.018 260) 100%);
+  }
+
+  /* ── Dark glass panels — museum-grade depth ── */
+  .museum-glass {
+    background: oklch(0.09 0.022 248 / 64%);
+    border: 1px solid oklch(1 0 0 / 15%);
+    box-shadow:
+      0 24px 64px oklch(0 0 0 / 58%),
+      0 8px 24px oklch(0 0 0 / 30%),
+      inset 0 1px 0 oklch(1 0 0 / 18%),
+      inset 0 -1px 0 oklch(0 0 0 / 14%);
+    backdrop-filter: blur(28px) saturate(155%);
+  }
+
+  .museum-panel {
+    background: oklch(0.07 0.020 252 / 72%);
+    border: 1px solid oklch(1 0 0 / 15%);
+    box-shadow:
+      0 32px 80px oklch(0 0 0 / 62%),
+      0 12px 32px oklch(0 0 0 / 36%),
+      inset 0 1px 0 oklch(1 0 0 / 20%),
+      inset 0 -1px 0 oklch(0 0 0 / 16%);
+    backdrop-filter: blur(36px) saturate(165%);
+  }
+
+  /* ── Toegankelijkheidsbadges ── */
+  .museum-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 9px;
+    border-radius: 999px;
+    border: 1px solid oklch(1 0 0 / 14%);
+    background: oklch(1 0 0 / 7%);
+    font-size: 9px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: oklch(0.86 0.008 240);
+    transition: background 0.15s ease, border-color 0.15s ease;
+  }
+
+  /* ── Tijdlijn wrapper — pulse-gloed ── */
+  .expedition-range-wrapper {
+    border-radius: 999px;
+    animation: timeline-track-pulse 3s ease-in-out infinite;
+  }
+
+  /* ── Tijdlijn — zeer prominente balk voor touchwall ── */
+  .expedition-range {
+    appearance: none;
+    width: 100%;
+    height: 20px;
+    background: linear-gradient(
+      90deg,
+      oklch(0.63 0.24 25.2) var(--progress),   /* rode voortgang */
+      oklch(1 0 0 / 14%)    var(--progress)     /* onbereikte lijn */
+    );
+    outline: none;
+    cursor: pointer;
+    border-radius: 999px;
+  }
+
+  .expedition-range:focus-visible {
+    outline: 2px solid oklch(0.63 0.24 25.2 / 65%);
+    outline-offset: 6px;
+    border-radius: 999px;
+  }
+
+  /* Thumb — zeer groot voor museumbezoekers op touchwall */
+  .expedition-range::-webkit-slider-thumb {
+    appearance: none;
+    width: 38px;
+    height: 38px;
+    border-radius: 999px;
+    background: oklch(0.63 0.24 25.2);   /* expedition red */
+    border: 5px solid oklch(0.07 0.020 252);
+    box-shadow:
+      0 0 0 3px oklch(0.63 0.24 25.2 / 40%),
+      0 0 24px oklch(0.63 0.24 25.2 / 90%),
+      0 0 52px oklch(0.63 0.24 25.2 / 45%),
+      0 4px 14px oklch(0 0 0 / 55%);
+    cursor: grab;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .expedition-range::-webkit-slider-thumb:hover {
+    transform: scale(1.12);
+  }
+
+  .expedition-range::-webkit-slider-thumb:active {
+    cursor: grabbing;
+    transform: scale(1.22);
+  }
+
+  .expedition-range::-moz-range-thumb {
+    width: 38px;
+    height: 38px;
+    border-radius: 999px;
+    background: oklch(0.63 0.24 25.2);
+    border: 5px solid oklch(0.07 0.020 252);
+    box-shadow:
+      0 0 0 3px oklch(0.63 0.24 25.2 / 40%),
+      0 0 24px oklch(0.63 0.24 25.2 / 90%),
+      0 4px 14px oklch(0 0 0 / 55%);
+    cursor: grab;
+  }
+
+  /* ── Moderne era — hemelsblauw kleurenschema ── */
+  .expedition-range--modern {
+    background: linear-gradient(
+      90deg,
+      oklch(0.65 0.18 220) var(--progress),
+      oklch(1 0 0 / 14%)   var(--progress)
+    );
+  }
+
+  .expedition-range--modern:focus-visible {
+    outline-color: oklch(0.65 0.18 220 / 65%);
+  }
+
+  .expedition-range--modern::-webkit-slider-thumb {
+    background: oklch(0.65 0.18 220);
+    box-shadow:
+      0 0 0 3px oklch(0.65 0.18 220 / 40%),
+      0 0 24px oklch(0.65 0.18 220 / 90%),
+      0 0 52px oklch(0.65 0.18 220 / 45%),
+      0 4px 14px oklch(0 0 0 / 55%);
+  }
+
+  .expedition-range--modern::-moz-range-thumb {
+    background: oklch(0.65 0.18 220);
+    box-shadow:
+      0 0 0 3px oklch(0.65 0.18 220 / 40%),
+      0 0 24px oklch(0.65 0.18 220 / 90%),
+      0 4px 14px oklch(0 0 0 / 55%);
+  }
+
+  .expedition-range-wrapper--modern {
+    animation: timeline-track-pulse-modern 3s ease-in-out infinite;
+  }
+
+  /* ── Hotspot CSS pulse (Three.js handles main animation) ── */
+  .hotspot-pulse {
+    animation: hotspot-pulse 1.9s ease-in-out infinite;
+  }
+}
+
+@keyframes hotspot-pulse {
+  0%, 100% {
+    opacity: 0.72;
+    transform: scale(0.92);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.14);
+  }
+}
+
+@keyframes timeline-track-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 2px oklch(0.63 0.24 25.2 / 15%));
+  }
+
+  50% {
+    filter: drop-shadow(0 0 10px oklch(0.63 0.24 25.2 / 52%)) drop-shadow(0 0 24px oklch(0.63 0.24 25.2 / 24%));
+  }
+}
+
+@keyframes timeline-track-pulse-modern {
+  0%, 100% {
+    filter: drop-shadow(0 0 2px oklch(0.65 0.18 220 / 15%));
+  }
+
+  50% {
+    filter: drop-shadow(0 0 10px oklch(0.65 0.18 220 / 52%)) drop-shadow(0 0 24px oklch(0.65 0.18 220 / 24%));
+  }
+}
